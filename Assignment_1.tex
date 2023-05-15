@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{graphicx} %Required for inserting images
+\usepackage{amsmath}
+
+\title{AI110 Assignment 1}
+\author{Vevek Manda }
+\date{EE22BTECH11220}
+
+\begin{document}
+	
+	
+	
+	\maketitle
+	
+	\section*{Question:}
+	
+	10.13.3.25:A coin is tossed 3 times. List the possible outcomes.\\
+	Find the {probability} of getting
+	(i) all heads (ii) at least 2 heads
+	
+	\section*{Solution:}
+	The possible outcomes may be listed as follows:\\
+	\begin{pmatrix}
+		{H,H,T} & {H,H,H}\\
+		{H,T,H} & {H,T,T}\\
+		{T,H,T} & {T,H,H}\\
+		{T,T,H} & {T,T,T}
+	\end{pmatrix}\\[3pt]
+	The sample space $S$ has a total of eight cases.
+	
+	\subsection*{(i).}\\
+	\begin{itemize}
+		\item In order to solve this questions let us take a random variable $x$ to represent the number of heads we get in three coin tosses and to explore all the events let us create a table to display the probabilities for varying values of $x$.\\[6pt]
+		\begin{tabular}{|l|c|r|}
+			\hline
+			x & \Pr(x) & Cases\\
+			\hline
+			0 & $\dfrac{1}{8}$ & $\{T,T,T\}$\\[8pt]
+			\hline
+			1 & $\dfrac{3}{8}$ & $\{H,T,T\}, \{T,H,T\}, \{T,T,H\}$\\[8pt]
+			\hline
+			2 & $\dfrac{3}{8}$ & $\{H,H,T\}, \{H,T,H\}, \{T,H,H\}$\\[8pt]
+			\hline
+			3 & $\dfrac{1}{8}$ & $\{H,H,H\}$ \\[8pt]
+			\hline
+		\end{tabular}\\[6pt]
+		\item The probability of getting all heads is clearly $\dfrac{1}{8}$.\\[4pt]
+		\item In the next approach we will be using binomial distribution, but let us first define the random variables to be used. By definition, a binomial random variable is the total number of “successes" in a fixed number of independent and identical trials, each of which has only two possible outcomes (usually called success and failure, but heads and tails in this particular case). The “independent and identical” implies that every trial has the same probability of success (and therefore all of the probabilities of failure at the same, too).\\[6pt]
+		\item We may state this as a fixed number of iid (independent and identically distributed) Bernoulli trials, which means the same thing. So a binomial random variable is a member of a two parameters family of discrete random variables, the parameters being the number of trials and the probability of success.\\[8pt]
+		\begin{tabular}{|l|r|}
+			\hline
+			Random variable & Physical representation\\
+			\hline
+			n & number of tosses\\
+			\hline
+			x & number of heads\\
+			\hline
+		\end{tabular}\\[4pt]
+		\item Using binomial probability distribution we can say that $\Pr(x)={n\choose x}(\Pr(H))^x(\Pr(T))^{n-x}$. Substituting n as 3 and x as 3 for the first part of the question we get $\Pr(0)=(\frac{1}{2})^3=\frac{1}{8}$.
+	\end{itemize}
+	
+	\subsection*{(ii).}\\
+	\begin{itemize}
+		\item The probability of getting at least 2 heads or $\Pr(x)\geq 2$ is equal to $\sum_{x=2}^{n}\Pr(x)$. \\[4pt]
+		\item Clearly $\Pr(2)+\Pr(3)= \frac{3}{8}+\frac{1}{8}= \frac{4}{8}$.\\[4pt]
+		\item Using binomial probability distribution to confirm probabilites we can say that $\Pr(x)={n\choose x}(\Pr(H))^x(\Pr(T))^{n-x}$.\\[4pt]
+		\item Substituting n as 3 and x as 2 and n as 3 and x as 3 for the second case we get $\Pr(2)+\Pr(3)={3\choose 2}(\frac{1}{2})^2(\frac{1}{2})^1+(\frac{1}{2})^3=\frac{1}{2}$.\\[4pt]
+		\item The probability of getting at least 2 heads is therefore $\dfrac{1}{2}$.
+	\end{itemize}
+\end{document}
